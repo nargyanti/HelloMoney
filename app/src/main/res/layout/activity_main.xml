@@ -8,29 +8,50 @@
     tools:context=".MainActivity">
 
     <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:src="@drawable/logo" />
+
+    <ImageView
+        android:id="@+id/MyListView"
+        android:layout_width="21dp"
+        android:layout_height="40dp"
+        android:divider="@android:color/transparent" />
+
+    <ImageView
         android:id="@+id/iv_money"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/MyListView2"
+        android:layout_width="21dp"
+        android:layout_height="30dp"
+        android:divider="@android:color/transparent" />
 
     <ListView
         android:id="@+id/lv_result"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp" />
+        android:layout_width="389dp"
+        android:layout_height="133dp"
+        android:textAlignment="center"/>
 
     <TextView
         android:id="@+id/tv_money_amount"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_width="438dp"
+        android:layout_height="75dp"
+        android:layout_margin="20dp"
+        android:layout_gravity="center"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="50dp"
-        android:textStyle="bold"
-        android:gravity="center"/>
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/bt_open_camera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="209dp"
+        android:layout_height="70dp"
         android:layout_gravity="center"
         android:layout_marginBottom="32dp"
         android:text="@string/ambil_foto_baru" />
