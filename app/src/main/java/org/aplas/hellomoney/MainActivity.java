@@ -16,7 +16,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     private static final int CAMERA_PERMISSION_REQUEST_CODE = 1000;
     private static final int CAMERA_REQUEST_CODE = 10001;
     private ImageView imageView;
-    private ListView listView;
     private TextView textView;
     private ImageClassification imageClassification;
 
@@ -45,14 +43,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void initializeUIElements() {
         imageView = findViewById(R.id.iv_money);
-        listView = findViewById(R.id.lv_result);
         Button takePicture = findViewById(R.id.bt_open_camera);
         textView = findViewById(R.id.tv_money_amount);
 
         try {
             imageClassification = new ImageClassification(this);
         } catch (IOException e) {
-            Log.e("Image Classifier Error", "EROROR: " + e);
+            Log.e("Image Classifier Error", "ERROR: " + e);
         }
 
         takePicture.setOnClickListener(new View.OnClickListener() {
@@ -80,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
             }
             ArrayAdapter<String> predictionsAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, predictionsList);
 
-            listView.setAdapter(predictionsAdapter);
             textView.setText(predictionsList.get(0));
         }
         super.onActivityResult(requestCode, resultCode, data);
@@ -119,7 +115,6 @@ public class MainActivity extends AppCompatActivity {
     private void openCamera() {
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(cameraIntent, CAMERA_REQUEST_CODE);
-
     }
 
     private boolean hasPermission() {
